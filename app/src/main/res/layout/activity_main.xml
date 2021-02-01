@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_8dp"
+        android:layout_marginTop="@dimen/material_8dp"
+        android:layout_marginEnd="@dimen/material_8dp"
+        android:alpha="0.4"
+        android:background="@drawable/shape_search_area"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/material_8dp"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="@dimen/material_16dp"
+            android:layout_height="@dimen/material_16dp"
+            android:layout_marginStart="@dimen/material_8dp"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/material_8dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/search_hint"
+            android:textColor="@color/mine_shaft">
+
+        </EditText>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/material_20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_movie"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="@dimen/material_16dp"
+            android:paddingTop="@dimen/material_4dp"
+            android:paddingRight="@dimen/material_16dp"
+            android:paddingBottom="@dimen/material_4dp"
+            android:text="@string/movie"
+            android:textColor="@drawable/radio_flat_text_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_song"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/material_16dp"
+            android:paddingTop="@dimen/material_4dp"
+            android:paddingRight="@dimen/material_16dp"
+            android:paddingBottom="@dimen/material_4dp"
+            android:text="@string/song"
+            android:textColor="@drawable/radio_flat_text_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_software"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/material_16dp"
+            android:paddingTop="@dimen/material_4dp"
+            android:paddingRight="@dimen/material_16dp"
+            android:paddingBottom="@dimen/material_4dp"
+            android:text="@string/software"
+            android:textColor="@drawable/radio_flat_text_selector" />
+
+        <RadioButton
+            android:id="@+id/rb_book"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/material_16dp"
+            android:paddingTop="@dimen/material_4dp"
+            android:paddingRight="@dimen/material_16dp"
+            android:paddingBottom="@dimen/material_4dp"
+            android:text="@string/book"
+            android:textColor="@drawable/radio_flat_text_selector" />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

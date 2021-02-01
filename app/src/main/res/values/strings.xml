@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SearchApp</string>
+
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="search_hint">Search Here</string>
+    <string name="movie">Movie</string>
+    <string name="song">Song</string>
+    <string name="software">Software</string>
+    <string name="book">Book</string>
+
+</resources>
