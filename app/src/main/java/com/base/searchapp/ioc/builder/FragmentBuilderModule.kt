@@ -1,12 +1,14 @@
 package com.base.searchapp.ioc.builder
 
 import com.base.core.ioc.scopes.FragmentScope
-import com.base.searchapp.ui.pages.home.HomeFragment
-import com.base.searchapp.ui.pages.home.ioc.HomeFragmentModule
-import com.base.searchapp.ui.pages.search.SearchFragment
-import com.base.searchapp.ui.pages.search.ioc.SearchFragmentModule
-import com.base.searchapp.ui.pages.profile.ProfileFragment
-import com.base.searchapp.ui.pages.profile.ioc.ProfileFragmentModule
+import com.base.searchapp.ui.pages.book.BookFragment
+import com.base.searchapp.ui.pages.book.ioc.BookFragmentModule
+import com.base.searchapp.ui.pages.movie.MovieFragment
+import com.base.searchapp.ui.pages.movie.ioc.MovieFragmentModule
+import com.base.searchapp.ui.pages.software.SoftwareFragment
+import com.base.searchapp.ui.pages.software.ioc.SoftwareFragmentModule
+import com.base.searchapp.ui.pages.profile.ioc.SongFragmentModule
+import com.base.searchapp.ui.pages.song.SongFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -14,15 +16,19 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuilderModule {
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [SearchFragmentModule::class])
-    abstract fun contributeSearchFragment(): SearchFragment
+    @ContributesAndroidInjector(modules = [SoftwareFragmentModule::class])
+    abstract fun contributeSoftwareFragment(): SoftwareFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [HomeFragmentModule::class])
-    abstract fun contributeHomeFragment(): HomeFragment
+    @ContributesAndroidInjector(modules = [MovieFragmentModule::class])
+    abstract fun contributeMovieFragment(): MovieFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [ProfileFragmentModule::class])
-    abstract fun contributeProfileFragment(): ProfileFragment
+    @ContributesAndroidInjector(modules = [SongFragmentModule::class])
+    abstract fun contributeSongFragment(): SongFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [BookFragmentModule::class])
+    abstract fun contributeBookFragment(): BookFragment
 
 }

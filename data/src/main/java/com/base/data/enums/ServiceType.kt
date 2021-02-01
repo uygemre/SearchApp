@@ -2,7 +2,7 @@ package com.base.data.enums
 
 enum class ServiceType(s: String) {
 
-    SEARCH("search"),
+    SEARCH("software"),
     TAG("tag");
 
     fun getServiceType(type: ServiceType): String {

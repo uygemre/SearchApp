@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface SearchApiInterface {
 
-    @GET("search")
+    @GET("software")
     fun getLatestNews(@Query("q") q: String?, @Query("show-fields") showFields: String): Single<PostResponse>
 
 }
