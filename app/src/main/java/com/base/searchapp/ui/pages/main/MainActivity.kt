@@ -2,16 +2,14 @@ package com.base.searchapp.ui.pages.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.base.core.helpers.LocalPrefManager
 import com.base.searchapp.R
 import com.base.searchapp.ui.base.activity.BaseActivity
 import com.base.searchapp.ui.pages.book.BookFragment
 import com.base.searchapp.ui.pages.main.viewmodel.MainActivityViewModel
 import com.base.searchapp.ui.pages.movie.MovieFragment
 import com.base.searchapp.ui.pages.software.SoftwareFragment
-import com.base.searchapp.ui.pages.song.SongFragment
+import com.base.searchapp.ui.pages.music.MusicFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import javax.inject.Inject
 
 /**
  *   Created by Emre UYGUN on 12/5/20
@@ -41,7 +39,7 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
                     fragment = MovieFragment()
                 }
                 R.id.rb_song -> {
-                    fragment = SongFragment()
+                    fragment = MusicFragment()
                 }
                 R.id.rb_software -> {
                     fragment = SoftwareFragment()

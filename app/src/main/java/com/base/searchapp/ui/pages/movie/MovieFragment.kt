@@ -2,7 +2,7 @@ package com.base.searchapp.ui.pages.movie
 
 import android.os.Bundle
 import android.view.View
-import com.base.component.GoAwayRecyclerviewAdapter
+import com.base.component.SearchAppRecyclerviewAdapter
 import com.base.searchapp.R
 import com.base.searchapp.ui.base.fragment.BaseViewModelFragment
 import com.base.searchapp.ui.pages.movie.viewmodel.MovieFragmentViewModel
@@ -15,7 +15,7 @@ import javax.inject.Inject
 class MovieFragment : BaseViewModelFragment<MovieFragmentViewModel>() {
 
     @Inject
-    lateinit var adapter: GoAwayRecyclerviewAdapter
+    lateinit var adapter: SearchAppRecyclerviewAdapter
 
     override val layoutViewRes: Int = R.layout.fragment_movie
 

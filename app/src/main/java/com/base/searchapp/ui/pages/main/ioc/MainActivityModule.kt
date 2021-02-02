@@ -5,7 +5,7 @@ package com.base.searchapp.ui.pages.main.ioc
 import androidx.appcompat.app.AppCompatActivity
 import com.base.core.ioc.scopes.ActivityScope
 import com.base.core.networking.Scheduler
-import com.base.searchapp.ioc.modules.guardian.GuardianServiceModule
+import com.base.searchapp.ioc.modules.guardian.SearchAppServiceModule
 import com.base.searchapp.ioc.builder.FragmentBuilderModule
 import com.base.searchapp.ioc.keys.ActivityViewModelKey
 import com.base.searchapp.ui.pages.main.MainActivity
@@ -25,7 +25,7 @@ import io.reactivex.disposables.CompositeDisposable
  *   Created by Emre UYGUN on 12/5/20
  */
 
-@Module(includes = [BaseActivityModule::class, FragmentBuilderModule::class, GuardianServiceModule::class])
+@Module(includes = [BaseActivityModule::class, FragmentBuilderModule::class, SearchAppServiceModule::class])
 abstract class MainActivityModule {
 
     @Binds

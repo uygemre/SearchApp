@@ -74,7 +74,7 @@
             android:paddingTop="@dimen/material_4dp"
             android:paddingRight="@dimen/material_16dp"
             android:paddingBottom="@dimen/material_4dp"
-            android:text="@string/song"
+            android:text="@string/music"
             android:textColor="@drawable/radio_flat_text_selector" />
 
         <RadioButton

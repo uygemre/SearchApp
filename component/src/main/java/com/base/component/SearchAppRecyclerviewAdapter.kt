@@ -4,7 +4,7 @@ import com.base.component.constant.RecyclerviewAdapterConstant
 import com.base.core.ui.recyclerview.DefaultDisplayItemComperator
 import com.base.core.ui.recyclerview.RecyclerViewAdapter
 
-class GoAwayRecyclerviewAdapter {
+class SearchAppRecyclerviewAdapter {
 
     fun getAdapter() = _adapter
 

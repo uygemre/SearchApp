@@ -1,6 +1,6 @@
 package com.base.component.ioc.module
 
-import com.base.component.GoAwayRecyclerviewAdapter
+import com.base.component.SearchAppRecyclerviewAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -9,7 +9,7 @@ class RecyclerAdapterModule {
 
 	@Provides
 	//@Singleton
-	fun provideAdapter(): GoAwayRecyclerviewAdapter {
-		return GoAwayRecyclerviewAdapter()
+	fun provideAdapter(): SearchAppRecyclerviewAdapter {
+		return SearchAppRecyclerviewAdapter()
 	}
 }

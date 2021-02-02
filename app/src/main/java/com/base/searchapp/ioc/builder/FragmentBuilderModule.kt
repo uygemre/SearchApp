@@ -7,8 +7,8 @@ import com.base.searchapp.ui.pages.movie.MovieFragment
 import com.base.searchapp.ui.pages.movie.ioc.MovieFragmentModule
 import com.base.searchapp.ui.pages.software.SoftwareFragment
 import com.base.searchapp.ui.pages.software.ioc.SoftwareFragmentModule
-import com.base.searchapp.ui.pages.profile.ioc.SongFragmentModule
-import com.base.searchapp.ui.pages.song.SongFragment
+import com.base.searchapp.ui.pages.music.ioc.MusicFragmentModule
+import com.base.searchapp.ui.pages.music.MusicFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -24,8 +24,8 @@ abstract class FragmentBuilderModule {
     abstract fun contributeMovieFragment(): MovieFragment
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = [SongFragmentModule::class])
-    abstract fun contributeSongFragment(): SongFragment
+    @ContributesAndroidInjector(modules = [MusicFragmentModule::class])
+    abstract fun contributeMusicFragment(): MusicFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [BookFragmentModule::class])
