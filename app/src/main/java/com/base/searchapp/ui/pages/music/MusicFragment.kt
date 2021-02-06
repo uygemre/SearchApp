@@ -38,7 +38,7 @@ class MusicFragment : BaseViewModelFragment<MusicFragmentViewModel>() {
 
     @SuppressLint("CheckResult")
     private fun bindObserver() {
-        viewModel.getMusicList()
+        viewModel.getMusicList("metallica")
         viewModel.musicListPublishSubject.subscribe {
             adapter.getAdapter().updateAllItems(it)
         }

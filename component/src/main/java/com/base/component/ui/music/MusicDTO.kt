@@ -3,6 +3,7 @@ package com.base.component.ui.music
 import android.os.Parcelable
 import com.base.component.constant.RecyclerviewAdapterConstant
 import com.base.core.ui.recyclerview.DisplayItem
+import com.base.data.response.MusicListResponse
 import com.base.data.response.MusicResults
 import kotlinx.android.parcel.Parcelize
 
@@ -12,6 +13,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class MusicDTO(
+    /*
     val wrapperType: String? = "",
     val kind: String? = "",
     val artistId: Int? = 0,
@@ -42,4 +44,8 @@ data class MusicDTO(
     val country: String? = "",
     val currency: String? = "",
     val primaryGenreName: String? = ""
+
+     */
+
+    var list: MusicResults?
 ) : Parcelable, DisplayItem(RecyclerviewAdapterConstant.TYPES.TYPE_MUSIC)

@@ -25,9 +25,9 @@ class MusicFragmentRepository(
 
     override val musicListDataResult = PublishSubject.create<DataFetchResult<MusicListResponse>>()
 
-    override fun getMusicList() {
+    override fun getMusicList(term: String?) {
         musicListDataResult.loading(true)
-        remote.getMusicList()
+        remote.getMusicList(term)
             .performOnBackOutOnMain(scheduler)
             .subscribe(
                 {

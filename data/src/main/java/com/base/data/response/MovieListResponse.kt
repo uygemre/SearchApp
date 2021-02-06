@@ -24,6 +24,7 @@ data class MovieResults(
     val previewUrl: String?,
     val artworkUrl30: String?,
     val artworkUrl60: String?,
+    val artworkUrl100: String?,
     val collectionPrice: Double?,
     val trackPrice: Double?,
     val trackRentalPrice: Double?,

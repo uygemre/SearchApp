@@ -12,6 +12,6 @@ class MusicFragmentRemoteData(
     private val apiInterface: SearchApiInterface
 ) : MusicFragmentContract.Remote {
 
-    override fun getMusicList(): Single<MusicListResponse> = apiInterface.getMusicList()
+    override fun getMusicList(term: String?): Single<MusicListResponse> = apiInterface.getMusicList(term)
 
 }

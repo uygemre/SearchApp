@@ -14,11 +14,11 @@ interface MusicFragmentContract {
     interface Repository {
         fun <T> handleError(dataFetchResult: PublishSubject<DataFetchResult<T>>, error: Throwable)
         val musicListDataResult: PublishSubject<DataFetchResult<MusicListResponse>>
-        fun getMusicList()
+        fun getMusicList(term: String?)
     }
 
     interface Remote {
-        fun getMusicList(): Single<MusicListResponse>
+        fun getMusicList(term: String?): Single<MusicListResponse>
     }
 
 }

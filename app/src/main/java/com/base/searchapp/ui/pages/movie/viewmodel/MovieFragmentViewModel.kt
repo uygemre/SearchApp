@@ -1,12 +1,17 @@
 package com.base.searchapp.ui.pages.movie.viewmodel
 
-import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import com.base.component.ui.gridrecycler.GridRecyclerDTO
+import com.base.component.ui.movie.MovieDTO
+import com.base.core.extensions.toLiveData
 import com.base.core.ioc.scopes.FragmentScope
+import com.base.core.networking.DataFetchResult
 import com.base.core.ui.recyclerview.DisplayItem
+import com.base.data.response.MovieListResponse
 import com.base.searchapp.ui.base.viewmodel.BaseFragmentViewModel
 import com.base.searchapp.ui.pages.movie.repository.MovieFragmentRepository
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
 /**
@@ -18,25 +23,40 @@ class MovieFragmentViewModel @Inject constructor(
     var repository: MovieFragmentRepository
 ) : BaseFragmentViewModel() {
 
-    var TAG = "DOCUMENT_MESSAGE"
+    val movieList = mutableListOf<DisplayItem>()
+    val movieListPublishSubject = PublishSubject.create<List<DisplayItem>>()
 
-    private val homePageItemList = mutableListOf<DisplayItem>()
-
-    val db = Firebase.firestore
-    //val cities = db.collection("cities")
-
-    fun getDataStorage() {
-        db.collection("Address")
-            //.whereEqualTo("capital", true)
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
+    var movieListDataResult: LiveData<DataFetchResult<MovieListResponse>> =
+        Transformations.map(repository.movieListDataResult.toLiveData(disposables)) {
+            when (it) {
+                is DataFetchResult.Progress -> {
+                }
+                is DataFetchResult.Failure -> {
+                }
+                is DataFetchResult.Success -> {
+                    consumeMovieList(it.data)
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
+            it
+        }
+
+
+    private fun consumeMovieList(response: MovieListResponse?) {
+        val list = arrayListOf<MovieDTO>()
+        response?.results?.map { _results ->
+            list.add(
+                MovieDTO(
+                    list = _results
+                )
+            )
+        }
+
+        movieList.add(GridRecyclerDTO(list = list))
+        movieListPublishSubject.onNext(movieList)
+    }
+
+    fun getMovieList(term: String?) {
+        repository.getMovieList(term)
     }
 }
 

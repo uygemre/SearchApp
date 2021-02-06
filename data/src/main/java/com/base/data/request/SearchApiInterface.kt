@@ -12,7 +12,7 @@ interface SearchApiInterface {
 
     @GET("https://itunes.apple.com/search?")
     fun getMusicList(
-        @Query("term") term: String? = "nirvana",
+        @Query("term") term: String?,
         @Query("media") media: String = "music",
         @Query("limit") limit: Int = 20
     ): Single<MusicListResponse>

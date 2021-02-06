@@ -15,31 +15,41 @@
         app:cardCornerRadius="@dimen/material_8dp">
 
         <ImageView
-            android:id="@+id/iv_song"
+            android:id="@+id/iv_movie"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="fitXY"
             android:src="@color/red" />
 
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12$"
+            android:padding="@dimen/material_4dp"
+            android:background="@drawable/shape_price_radius"
+            android:textColor="@color/black"
+            android:layout_gravity="bottom|end"/>
+
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tv_track_name"
+        android:id="@+id/tv_movie_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
         android:layout_marginTop="2dp"
-        android:text="Stairway to Heaven"
+        android:text="The Godfather"
         android:textColor="@color/black"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/tv_artist_name"
+        android:id="@+id/tv_release_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Led Zeppelin" />
+        android:text="24 March 1972" />
 
 </LinearLayout>

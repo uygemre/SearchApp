@@ -42,20 +42,21 @@ class MusicFragmentViewModel @Inject constructor(
 
     private fun consumeMusicList(response: MusicListResponse) {
         val list = arrayListOf<MusicDTO>()
-        response.results.map {
+        response.results.map { _results ->
             list.add(
                 MusicDTO(
-                    artworkUrl100 = it.artworkUrl100
+                    list = _results
                 )
             )
         }
+
 
         musicList.add(GridRecyclerDTO(list = list))
         musicListPublishSubject.onNext(musicList)
     }
 
-    fun getMusicList() {
-        repository.getMusicList()
+    fun getMusicList(term: String?) {
+        repository.getMusicList(term)
     }
 
 }
