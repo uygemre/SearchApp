@@ -22,7 +22,6 @@
         android:theme="@style/AppTheme">
 
         <activity android:name="com.base.searchapp.ui.pages.main.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,6 +29,8 @@
             </intent-filter>
 
         </activity>
+
+        <activity android:name=".ui.pages.detail.DetailActivity" />
 
     </application>
 

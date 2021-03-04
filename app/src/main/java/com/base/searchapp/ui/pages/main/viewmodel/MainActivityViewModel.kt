@@ -14,4 +14,9 @@ class MainActivityViewModel @Inject constructor(
     private val repository: MainActivityRepository
 ) : BaseActivityViewModel() {
 
+    val searchListPublishSubject = repository.searchListDataResult
+
+    fun getSearchList(term: String?, media: String?) {
+        repository.getSearchList(term, media)
+    }
 }

@@ -1,8 +1,9 @@
 package com.base.searchapp.ui.pages.main.repository
 
-import com.base.core.extensions.failed
+import com.base.core.extensions.*
 import com.base.core.networking.DataFetchResult
 import com.base.core.networking.Scheduler
+import com.base.data.response.SearchListResponse
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
@@ -23,5 +24,21 @@ class MainActivityRepository(
     ) {
         dataFetchResult.failed(error)
         Timber.e(error.localizedMessage)
+    }
+
+    override val searchListDataResult = PublishSubject.create<DataFetchResult<SearchListResponse>>()
+
+    override fun getSearchList(term: String?, media: String?) {
+        searchListDataResult.loading(true)
+        remote.getSearchList(term, media)
+            .performOnBackOutOnMain(scheduler)
+            .subscribe(
+                {
+                    searchListDataResult.success(it)
+                },
+                { _error ->
+                    handleError(searchListDataResult, _error)
+                }
+            ).addTo(compositeDisposable)
     }
 }

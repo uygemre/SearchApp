@@ -1,4 +1,4 @@
-package com.base.component.ui.movie
+package com.base.component.ui.ebook
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,47 +9,47 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.base.component.R
-import com.base.core.extensions.gone
 import com.base.core.extensions.loadImage
 import com.base.core.ui.recyclerview.DisplayItem
 import com.base.core.ui.recyclerview.ViewHolder
 import com.base.core.ui.recyclerview.ViewHolderBinder
 import com.base.core.ui.recyclerview.ViewHolderFactory
-import com.base.core.utils.TimeUtil
 import javax.inject.Inject
 
 // Created by Emre UYGUN on 2/13/21
 // Copyriht © Demiroren Technology. All rights reserved.
 
-class MovieViewHolder(var view: View) : ViewHolder<MovieDTO>(view) {
+class EBookViewHolder(var view: View) : ViewHolder<EBookDTO>(view) {
 
-    private var rootView = view.findViewById<LinearLayout>(R.id.rootMovie)
-    private var ivMovie = view.findViewById<ImageView>(R.id.iv_movie)
-    private var tvMovieName = view.findViewById<TextView>(R.id.tv_movie_name)
-    private var tvPrice = view.findViewById<TextView>(R.id.tv_price)
-    private var tvReleaseDate = view.findViewById<TextView>(R.id.tv_release_date)
+    private var rootView = view.findViewById<LinearLayout>(R.id.rootEBook)
+    private val ivEBook = view.findViewById<ImageView>(R.id.iv_ebook)
+    private val tvEBookName = view.findViewById<TextView>(R.id.tv_ebook_name)
+    private val tvEBookGenre = view.findViewById<TextView>(R.id.tv_ebook_genre)
+    private val tvEBookArtistName = view.findViewById<TextView>(R.id.tv_ebook_artist_name)
 
     @SuppressLint("SetTextI18n")
-    override fun bind(item: MovieDTO) {
+    override fun bind(item: EBookDTO) {
         item.list.let {
-            ivMovie.loadImage(it?.artworkUrl100 ?: "")
-            tvMovieName.text =
-                if (it?.collectionName.isNullOrEmpty()) it?.trackName else it?.collectionName
-            tvPrice.text = "${it?.trackPrice ?: tvPrice.gone()} $"
-            tvReleaseDate.text =
-                TimeUtil.dateDiff2(date = it?.releaseDate ?: "", format = "dd-MM-yyyy")
+            ivEBook.loadImage(it?.artworkUrl100 ?: "")
+            if (it?.averageUserRating != null ) {
+                tvEBookName.text = "${it?.trackName} (${it?.averageUserRating})"
+            } else
+                tvEBookName.text = it?.trackName
+            tvEBookGenre.text = it?.genres.let { _genres ->
+                _genres?.get(0) ?: ""
+            }
+            tvEBookArtistName.text = it?.artistName
         }
         rootView.setOnClickListener {
             itemClickListener?.invoke(item, adapterPosition)
         }
     }
 
-
     class HolderFactory @Inject constructor() : ViewHolderFactory {
         override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
-            MovieViewHolder(
+            EBookViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_movie,
+                    R.layout.item_ebook,
                     parent,
                     false
                 )
@@ -58,7 +58,7 @@ class MovieViewHolder(var view: View) : ViewHolder<MovieDTO>(view) {
 
     class BinderFactory @Inject constructor() : ViewHolderBinder {
         override fun bind(holder: RecyclerView.ViewHolder, item: DisplayItem) {
-            (holder as MovieViewHolder).bind(item as MovieDTO)
+            (holder as EBookViewHolder).bind(item as EBookDTO)
         }
     }
 }

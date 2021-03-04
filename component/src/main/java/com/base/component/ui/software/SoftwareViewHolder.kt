@@ -1,4 +1,4 @@
-package com.base.component.ui.movie
+package com.base.component.ui.software
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.base.component.R
-import com.base.core.extensions.gone
 import com.base.core.extensions.loadImage
 import com.base.core.ui.recyclerview.DisplayItem
 import com.base.core.ui.recyclerview.ViewHolder
@@ -21,23 +20,19 @@ import javax.inject.Inject
 // Created by Emre UYGUN on 2/13/21
 // Copyriht © Demiroren Technology. All rights reserved.
 
-class MovieViewHolder(var view: View) : ViewHolder<MovieDTO>(view) {
+class SoftwareViewHolder(var view: View) : ViewHolder<SoftwareDTO>(view) {
 
-    private var rootView = view.findViewById<LinearLayout>(R.id.rootMovie)
-    private var ivMovie = view.findViewById<ImageView>(R.id.iv_movie)
-    private var tvMovieName = view.findViewById<TextView>(R.id.tv_movie_name)
-    private var tvPrice = view.findViewById<TextView>(R.id.tv_price)
-    private var tvReleaseDate = view.findViewById<TextView>(R.id.tv_release_date)
+    private var rootView = view.findViewById<LinearLayout>(R.id.rootSoftware)
+    private val ivSoftware = view.findViewById<ImageView>(R.id.iv_software)
+    private val tvSoftwareName = view.findViewById<TextView>(R.id.tv_software_name)
+    private val tvSoftwareGenre = view.findViewById<TextView>(R.id.tv_software_genre)
 
     @SuppressLint("SetTextI18n")
-    override fun bind(item: MovieDTO) {
-        item.list.let {
-            ivMovie.loadImage(it?.artworkUrl100 ?: "")
-            tvMovieName.text =
-                if (it?.collectionName.isNullOrEmpty()) it?.trackName else it?.collectionName
-            tvPrice.text = "${it?.trackPrice ?: tvPrice.gone()} $"
-            tvReleaseDate.text =
-                TimeUtil.dateDiff2(date = it?.releaseDate ?: "", format = "dd-MM-yyyy")
+    override fun bind(item: SoftwareDTO) {
+        item.list?.let {
+            ivSoftware.loadImage(it.artworkUrl100 ?: "")
+            tvSoftwareName.text = "${it.trackName} (${TimeUtil.dateDiff2(date = it.releaseDate ?: "", format = "yyyy")})"
+            tvSoftwareGenre.text = it.primaryGenreName
         }
         rootView.setOnClickListener {
             itemClickListener?.invoke(item, adapterPosition)
@@ -47,9 +42,9 @@ class MovieViewHolder(var view: View) : ViewHolder<MovieDTO>(view) {
 
     class HolderFactory @Inject constructor() : ViewHolderFactory {
         override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
-            MovieViewHolder(
+            SoftwareViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_movie,
+                    R.layout.item_software,
                     parent,
                     false
                 )
@@ -58,7 +53,7 @@ class MovieViewHolder(var view: View) : ViewHolder<MovieDTO>(view) {
 
     class BinderFactory @Inject constructor() : ViewHolderBinder {
         override fun bind(holder: RecyclerView.ViewHolder, item: DisplayItem) {
-            (holder as MovieViewHolder).bind(item as MovieDTO)
+            (holder as SoftwareViewHolder).bind(item as SoftwareDTO)
         }
     }
 }

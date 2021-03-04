@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootMovie"
+    android:id="@+id/rootEBook"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/material_16dp"
@@ -9,49 +9,52 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_image"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
         android:background="@color/black"
         app:cardCornerRadius="@dimen/material_8dp">
 
         <ImageView
-            android:id="@+id/iv_movie"
+            android:id="@+id/iv_ebook"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@color/red" />
-
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:background="@drawable/shape_price_radius"
-            android:padding="@dimen/material_4dp"
-            android:text="12$"
-            android:textColor="@color/black" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tv_movie_name"
+        android:id="@+id/tv_ebook_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:gravity="center"
-        android:maxLines="1"
-        android:text="The Godfather"
+        android:maxLines="2"
+        android:scrollHorizontally="true"
+        android:text="YouTube"
         android:textColor="@color/black"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/tv_release_date"
+        android:id="@+id/tv_ebook_artist_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:gravity="center"
+        android:text="Writer"/>
+
+    <TextView
+        android:id="@+id/tv_ebook_genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
-        android:text="24 March 1972" />
+        android:textColor="@color/red"
+        android:text="Entertainment" />
 
 </LinearLayout>
+

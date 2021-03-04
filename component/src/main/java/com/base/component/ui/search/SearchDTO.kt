@@ -1,4 +1,4 @@
-package com.base.component.ui.music
+package com.base.component.ui.search
 
 import android.os.Parcelable
 import com.base.component.constant.RecyclerviewAdapterConstant
@@ -6,10 +6,10 @@ import com.base.core.ui.recyclerview.DisplayItem
 import com.base.data.response.SearchResults
 import kotlinx.android.parcel.Parcelize
 
-// Created by Emre UYGUN on 2/13/21
+// Created by Emre UYGUN on 2/6/21
 // Copyriht © Demiroren Technology. All rights reserved.
 
 @Parcelize
-class MusicDTO(
+data class SearchDTO(
     var list: SearchResults?
-) : Parcelable, DisplayItem(RecyclerviewAdapterConstant.TYPES.TYPE_MUSIC)
+): Parcelable, DisplayItem(RecyclerviewAdapterConstant.TYPES.TYPE_SEARCH)

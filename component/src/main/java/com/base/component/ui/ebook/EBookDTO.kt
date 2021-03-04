@@ -1,4 +1,4 @@
-package com.base.component.ui.music
+package com.base.component.ui.ebook
 
 import android.os.Parcelable
 import com.base.component.constant.RecyclerviewAdapterConstant
@@ -10,6 +10,6 @@ import kotlinx.android.parcel.Parcelize
 // Copyriht © Demiroren Technology. All rights reserved.
 
 @Parcelize
-class MusicDTO(
+data class EBookDTO(
     var list: SearchResults?
-) : Parcelable, DisplayItem(RecyclerviewAdapterConstant.TYPES.TYPE_MUSIC)
+) : Parcelable, DisplayItem(RecyclerviewAdapterConstant.TYPES.TYPE_EBOOK)

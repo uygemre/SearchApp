@@ -5,5 +5,9 @@ package com.base.searchapp.ui.common.enums
  */
 
 enum class IntentBundleKeyEnum {
-    DETAIL_KEY
+    DETAIL_KEY,
+    DETAIL_MOVIE,
+    DETAIL_MUSIC,
+    DETAIL_SOFTWARE,
+    DETAIL_EBOOK
 }
